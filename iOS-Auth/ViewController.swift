@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
+    let loginURL = "http://localhost:8888/iOS-auth/public/api/login"
     
     @IBOutlet weak var emailOutlet: UITextField!
     @IBOutlet weak var passwordOutlet: UITextField!
@@ -21,7 +24,23 @@ class ViewController: UIViewController {
     @IBAction func onClickLogin(_ sender: UIButton) {
         
         if emailOutlet != nil && passwordOutlet != nil {
-            print("\(emailOutlet.text) \(passwordOutlet.text)")
+//            let headers: HTTPHeaders =
+            let params = ["email": emailOutlet!.text!, "password": passwordOutlet!.text!]
+            Alamofire.request(loginURL, method: .post, parameters: params as Parameters).authenticate(user: emailOutlet!.text!, password: passwordOutlet!.text!).responseJSON { response in
+                switch response.result {
+                case .success:
+                    if let value = response.result.value{
+                        let data = JSON(value)
+                        let token = data["success"]["token"]
+                        print(token)
+                    }
+                    
+                    self.emailOutlet.text = nil
+                    self.passwordOutlet.text = nil
+                case let .failure(error):
+                    print(error)
+                }
+                }
         }
     }
     
