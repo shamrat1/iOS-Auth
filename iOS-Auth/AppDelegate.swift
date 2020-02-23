@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print(UserDefaults.standard.isLoggedIn())
+        if UserDefaults.standard.isLoggedIn(){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "main")
+            window?.rootViewController = vc
+            
+        }
+        
         return true
     }
 
@@ -31,6 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        if UserDefaults.standard.isLoggedIn(){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "main")
+            window?.rootViewController = vc
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

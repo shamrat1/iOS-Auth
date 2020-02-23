@@ -13,7 +13,7 @@ extension UserDefaults {
     
     func setLoggedIn(tokenText: JSON) {
         set(true, forKey: "isLoggedIn")
-        set(tokenText, forKey: "access_token")
+        set(String(describing: tokenText), forKey: "access_token")
         synchronize()
     }
     
@@ -23,8 +23,11 @@ extension UserDefaults {
     
     func logout() {
         set(false, forKey: "isLoggedIn")
-        set("", forKey: "access_token")
+        set(nil, forKey: "access_token")
         synchronize()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginController")
+        UIApplication.shared.keyWindow?.rootViewController = vc
     }
     
 }
