@@ -8,5 +8,5 @@ target 'iOS-Auth' do
   # Pods for iOS-Auth
   pod 'Alamofire', '~> 4.1'
   pod 'SwiftyJSON', '~> 4'
-
+  pod 'SVProgressHUD'
 end

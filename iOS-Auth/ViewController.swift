@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class ViewController: UIViewController {
 
@@ -21,9 +22,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        DispatchQueue.main.async {
+        
+        
+        
             self.getUser()
-        }
+        
+        
         
     }
     @IBAction func onClickLogout(_ sender: Any) {
@@ -35,6 +39,7 @@ class ViewController: UIViewController {
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(token!)"
         ]
+        SVProgressHUD.show(withStatus: "Loading...")
         Alamofire.request(userURL, method: .get, headers: headers).responseJSON { response in
             switch response.result{
             case .success:
@@ -47,6 +52,7 @@ class ViewController: UIViewController {
                 print(error)
             }
         }
+        SVProgressHUD.dismiss()
     }
     
 

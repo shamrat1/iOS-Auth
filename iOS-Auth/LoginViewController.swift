@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
     
@@ -29,6 +30,7 @@ class LoginViewController: UIViewController {
     @IBAction func onClickLogin(_ sender: UIButton) {
         
         if emailOutlet.text != "" && passwordOutlet.text != "" {
+            SVProgressHUD.show(withStatus: "Loading...")
             //            let headers: HTTPHeaders =
             let params = ["email": emailOutlet!.text!, "password": passwordOutlet!.text!]
             Alamofire.request(loginURL, method: .post, parameters: params as Parameters).responseJSON { response in
@@ -46,6 +48,7 @@ class LoginViewController: UIViewController {
                     print(error)
                 }
             }
+            SVProgressHUD.dismiss()
         }
     }
     
