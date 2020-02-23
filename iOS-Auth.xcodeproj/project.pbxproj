@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,9 @@
 		21170BC024005430007402F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21170BBE24005430007402F4 /* Main.storyboard */; };
 		21170BC224005433007402F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21170BC124005433007402F4 /* Assets.xcassets */; };
 		21170BC524005433007402F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21170BC324005433007402F4 /* LaunchScreen.storyboard */; };
+		215241432402354F005371CF /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215241422402354F005371CF /* UserDefaults+Helpers.swift */; };
+		2152414524023BFA005371CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152414424023BFA005371CF /* LoginViewController.swift */; };
+		2152414724023DAD005371CF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152414624023DAD005371CF /* RegisterViewController.swift */; };
 		DF332D4687ED65AE6F4CDBF5 /* Pods_iOS_Auth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F39885270B7D6697E79312B0 /* Pods_iOS_Auth.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +27,9 @@
 		21170BC124005433007402F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21170BC424005433007402F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21170BC624005433007402F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		215241422402354F005371CF /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
+		2152414424023BFA005371CF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2152414624023DAD005371CF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ACA2E7CEFAD0A845D08CFDCA /* Pods-iOS-Auth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Auth.debug.xcconfig"; path = "Target Support Files/Pods-iOS-Auth/Pods-iOS-Auth.debug.xcconfig"; sourceTree = "<group>"; };
 		F39885270B7D6697E79312B0 /* Pods_iOS_Auth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Auth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -67,6 +73,9 @@
 				21170BC124005433007402F4 /* Assets.xcassets */,
 				21170BC324005433007402F4 /* LaunchScreen.storyboard */,
 				21170BC624005433007402F4 /* Info.plist */,
+				215241422402354F005371CF /* UserDefaults+Helpers.swift */,
+				2152414424023BFA005371CF /* LoginViewController.swift */,
+				2152414624023DAD005371CF /* RegisterViewController.swift */,
 			);
 			path = "iOS-Auth";
 			sourceTree = "<group>";
@@ -85,7 +94,6 @@
 				ACA2E7CEFAD0A845D08CFDCA /* Pods-iOS-Auth.debug.xcconfig */,
 				010F9B5E623C8C8CA62453B1 /* Pods-iOS-Auth.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -204,6 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2152414524023BFA005371CF /* LoginViewController.swift in Sources */,
+				2152414724023DAD005371CF /* RegisterViewController.swift in Sources */,
+				215241432402354F005371CF /* UserDefaults+Helpers.swift in Sources */,
 				21170BBD24005430007402F4 /* ViewController.swift in Sources */,
 				21170BBB24005430007402F4 /* AppDelegate.swift in Sources */,
 			);
