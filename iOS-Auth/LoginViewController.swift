@@ -26,6 +26,9 @@ class LoginViewController: UIViewController {
         print(UserDefaults.standard.string(forKey: "access_token"))
         
     }
+    @IBAction func onClickRegisterView(_ sender: Any) {
+        performSegue(withIdentifier: "goToRegisterView", sender: self)
+    }
     
     @IBAction func onClickLogin(_ sender: UIButton) {
         
@@ -47,8 +50,9 @@ class LoginViewController: UIViewController {
                 case let .failure(error):
                     print(error)
                 }
+                SVProgressHUD.dismiss()
             }
-            SVProgressHUD.dismiss()
+            
         }
     }
     

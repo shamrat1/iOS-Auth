@@ -48,7 +48,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="gik-zh-mHu" kind="show" id="a4F-3z-4LI"/>
+                                            <action selector="onClickRegisterView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dz7-na-k2O"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -68,6 +68,7 @@
                     <connections>
                         <outlet property="emailOutlet" destination="cS9-Hm-RXY" id="qK7-FF-iNK"/>
                         <outlet property="passwordOutlet" destination="1kM-bf-r6u" id="ZiJ-aT-pKa"/>
+                        <segue destination="gik-zh-mHu" kind="show" identifier="goToRegisterView" id="ahF-zP-JqU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -143,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jjv-Nd-vNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564" y="698"/>
+            <point key="canvasLocation" x="564" y="785"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0ag-wU-vuy">

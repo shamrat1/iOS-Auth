@@ -28,17 +28,17 @@ class RegisterViewController: UIViewController {
     @IBAction func onClickSubmit(_ sender: Any) {
         if nameOutlet.text != "" && emailOutlet.text != "" && passwordOutlet.text != "" && confirmPasswordOutlet.text != "" {
             let params = [
-                "name": nameOutlet.text,
-                "email": emailOutlet.text,
-                "password": passwordOutlet.text,
-                "c_password": confirmPasswordOutlet.text
+                "name": nameOutlet.text!,
+                "email": emailOutlet.text!,
+                "password": passwordOutlet.text!,
+                "c_password": confirmPasswordOutlet.text!
             ]
-            
+            print(params)
             Alamofire.request(registerURL, method: .post, parameters: params as Parameters).responseJSON { response in
                 switch response.result{
                 case .success:
                     print("success")
-                    print(response.result.value)
+                    self.navigationController?.popViewController(animated: true)
                 case let .failure(error):
                     debugPrint(error)
                 }
