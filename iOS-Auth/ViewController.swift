@@ -24,15 +24,18 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        
-        SVProgressHUD.show(withStatus: "Loading...")
-        self.getUser()
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.getUser()
+            print("Background Thread")
+        }
         
         
         
     }
     @IBAction func onClickLogout(_ sender: Any) {
+        
         UserDefaults.standard.logout()
+        
     }
     
     func getUser(){
@@ -40,25 +43,22 @@ class ViewController: UIViewController {
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(token!)"
         ]
-//        activityIndicator.startAnimating()
-//        SVProgressHUD.show(withStatus: "Loading...")
-        Alamofire.request(userURL, method: .get, headers: headers).responseJSON { response in
-//            DispatchQueue.main.async {
-                switch response.result{
-                case .success:
-                    let data = JSON(response.result.value as Any)
-                    self.nameLabel.text = "Name: \(String(describing: data["name"]))"
-                    self.emailLabel.text = "Email: \(String(describing: data["email"]))"
-                    self.createdAtLabel.text = String(describing: data["created_at"])
-                    print(self.nameLabel.text as Any)
-                case let .failure(error):
-                    print(error)
+            Alamofire.request(self.userURL, method: .get, headers: headers).responseJSON { response in
+                    switch response.result{
+                    case .success:
+                        DispatchQueue.main.async { // Main UI Thread
+                            let data = JSON(response.result.value as Any)
+                            print("Main UI: \(data)")
+                            self.nameLabel.text = "Name: \(String(describing: data["name"]))"
+                            self.emailLabel.text = "Email: \(String(describing: data["email"]))"
+                            self.createdAtLabel.text = String(describing: data["created_at"])
+                            print(self.nameLabel.text as Any)
+                        }
+                    case let .failure(error):
+                        print(error)
+                    }
                 }
-//            }
-            SVProgressHUD.dismiss()
-        }
-//        activityIndicator.stopAnimating()
-//        SVProgressHUD.dismiss()
+
     }
     
     func startIndicator()

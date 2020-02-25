@@ -22,12 +22,13 @@ extension UserDefaults {
     }
     
     func logout() {
-        set(false, forKey: "isLoggedIn")
-        set(nil, forKey: "access_token")
-        synchronize()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginController")
         UIApplication.shared.keyWindow?.rootViewController = vc
+        set(false, forKey: "isLoggedIn")
+        set(nil, forKey: "access_token")
+        synchronize()
+        
     }
     
 }
